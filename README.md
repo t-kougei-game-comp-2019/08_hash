@@ -16,7 +16,7 @@
 
 # テスト結果
 
-[![Build Status](https://travis-ci.com/t-kougei-game-comp-2019/08_hash.svg?branch=master)](https://travis-ci.com/t-kougei-game-comp-2019/08_hash)
+[![Build Status](https://travis-ci.com/kuryu86/08_hash.svg?branch=master)](https://travis-ci.com/kuryu86/08_hash)
 
 # 今回の問題
 
