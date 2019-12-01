@@ -3,31 +3,33 @@
 
 #define STR_MAX 255
 #define HASH_MAX 10
-void HashFn(char *str, char Hash[][STR_MAX])
+void HashFn(char str[], char Hash[][STR_MAX])
 {
 	int sum = 0;
+	char tmp[STR_MAX] = {};
+	strncpy(tmp, str, STR_MAX);
+
 	for (int i = 0; i < STR_MAX; i++)
 	{
-		if (str[i] == '\n')
-			str[i] = '\0';
-		sum += str[i];
+		if (tmp[i] == '\n')
+		{
+			tmp[i] = '\0';
+		}
+		sum += tmp[i];
 	}
-	int HashNum = sum % STR_MAX;
-	int count;
-	for (; strcmp(Hash[HashNum], "\0") != 0; HashNum = (HashNum + 1) % HASH_MAX)
+	int HashNum = sum % 10;
+	while (Hash[HashNum][0] != '\0')
 	{
-		count++;
-		if(count>HASH_MAX)
-			break;
+		HashNum = (HashNum + 1) % HASH_MAX;
 	}
-	if(count<HASH_MAX)
-		strcpy(Hash[HashNum], str);
+	strncpy(Hash[HashNum], tmp, STR_MAX);
 }
 void ShowHash(char Hash[][STR_MAX])
 {
-	for (size_t i = 0; i < STR_MAX; i++)
+	for (size_t i = 0; i < HASH_MAX; i++)
 	{
-		printf("%s", Hash[i]);
+		if (Hash[i] != NULL)
+			printf("%s", Hash[i]);
 		if (i + 1 == 10)
 			printf("\n");
 		else
@@ -38,13 +40,13 @@ int main(int argc, char *argv[])
 {
 	char Hash[10][STR_MAX] = {};
 	char str[STR_MAX];
+	//HashFn("a\n", Hash);
 	while (fgets(str, sizeof(str), stdin))
 	{
-		if (strcmp(str, "\0") != 0)
+		if (str[0] != '\n')
 			HashFn(str, Hash);
 		else
 			ShowHash(Hash);
 	}
-
 	return 0;
 }
