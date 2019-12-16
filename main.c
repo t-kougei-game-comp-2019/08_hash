@@ -35,18 +35,15 @@ int main(int argc, char *argv[])
 		if (str[0]!='\n')
 		{          
 			int sum = 0;
-			char tmp[STR_MAX] = {};
-			//strncpy(tmp, str, STR_MAX);
-
 			for (int i = 0; i < STR_MAX; i++)
 			{
 				if (str[i] == '\n')
 				{
-                        str[i]='\0';
+						str[i]='\0';
 						break;
 				}
 				sum += str[i];
-                sum%=HASH_MAX;
+				sum%=HASH_MAX;
 			}
 			int HashNum=sum;
 			while (IsHashEmpty[HashNum]!= 0)
@@ -55,7 +52,17 @@ int main(int argc, char *argv[])
 			IsHashEmpty[HashNum]= 1;
 		}
 		else
-			ShowHash(Hash);
+		{
+			for (size_t i = 0; i < HASH_MAX; i++)
+			{
+				if (IsHashEmpty[HashNum]!= 0)
+					printf("%s", Hash[i]);
+				if (i + 1 == 10)
+					printf("\n");
+				else
+					printf(",");
+			}
+		}
 	}
 	return 0;
 }
