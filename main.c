@@ -3,7 +3,7 @@
 
 #define  _CRT_SECURE_NO_WARNINGS
 
-#define STR_MAX 512
+#define STR_MAX 258
 #define HASH_MAX 10
 int IsHashEmpty[HASH_MAX];
 void HashFn(int HashNum, char Hash[][STR_MAX]) {
@@ -48,9 +48,13 @@ int main(int argc, char *argv[])
 				sum %= HASH_MAX;
 			}
 			int HashNum = sum;
-			while (IsHashEmpty[HashNum] != 0)
+			int hashCount = 0;
+			while (IsHashEmpty[HashNum] != 0) {
 				HashNum = (HashNum + 1) % HASH_MAX;
-			strncpy_s(Hash[HashNum], sizeof(Hash[HashNum]), str, STR_MAX);
+				hashCount++;
+				if (hashCount > HASH_MAX)break;
+			}
+				strncpy_s(Hash[HashNum], sizeof(Hash[HashNum]), str, STR_MAX);
 			IsHashEmpty[HashNum] = 1;
 		}
 		else
