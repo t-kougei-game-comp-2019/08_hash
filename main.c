@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
 				hashCount++;
 				if (hashCount > HASH_MAX)break;
 			}
-				strncpy_s(Hash[HashNum], sizeof(Hash[HashNum]), str, STR_MAX);
+				strncpy(Hash[HashNum], sizeof(Hash[HashNum]), str, STR_MAX);
 			IsHashEmpty[HashNum] = 1;
 		}
 		else
