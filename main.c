@@ -13,12 +13,12 @@ void HashFn(char str[], char Hash[][STR_MAX])
 	{
 		if (tmp[i] == '\n')
 		{
-			tmp[i] = '\0';
+			break;
 		}
 		sum += tmp[i];
 	}
 	int HashNum = sum % 10;
-	while (Hash[HashNum][0] != '\0')
+	while (Hash[HashNum][0] != '\n')
 	{
 		HashNum = (HashNum + 1) % HASH_MAX;
 	}
