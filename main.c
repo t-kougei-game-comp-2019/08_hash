@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#define STR_MAX 255
+#define STR_MAX 257
 #define HASH_MAX 10
 int IsHashEmpty[HASH_MAX];
 void HashFn(int HashNum, char Hash[][STR_MAX]){
