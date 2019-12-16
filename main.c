@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
 {
 	char Hash[HASH_MAX][STR_MAX] = {};
 	char str[STR_MAX];
-	for(int i=0;i<HASH_MAX)
+	for(int i=0;i<HASH_MAX;i++)
             IsHashEmpty[i]=0;
 	while (fgets(str, sizeof(str), stdin))
 	{
