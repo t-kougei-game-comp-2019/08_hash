@@ -9,7 +9,7 @@ void HashFn(int HashNum, char Hash[][STR_MAX]){
 	{
 		HashNum = (HashNum + 1) % HASH_MAX;
 	}
-	strncpy(Hash[HashNum], tmp, STR_MAX);
+	//strncpy(Hash[HashNum], tmp, STR_MAX);
         IsHashEmpty[HashNum]= 1;
 }
 void ShowHash(char Hash[][STR_MAX])
