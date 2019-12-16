@@ -14,6 +14,7 @@ void HashFn(char str[], char Hash[][STR_MAX])
 	{
 		if (tmp[i] == '\n')
 		{
+                        tmp[i]='\0';
 			break;
 		}
 		sum += tmp[i];
