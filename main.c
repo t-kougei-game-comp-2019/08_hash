@@ -3,7 +3,7 @@
 
 #define STR_MAX 255
 #define HASH_MAX 10
-bool IsHashEmpty[HASH_MAX];
+int IsHashEmpty[HASH_MAX];
 void HashFn(char str[], char Hash[][STR_MAX])
 {
 	int sum = 0;
@@ -19,12 +19,12 @@ void HashFn(char str[], char Hash[][STR_MAX])
 		sum += tmp[i];
 	}
 	int HashNum = sum % 10;
-	while (IsHashEmpty[HashNum]!= true)
+	while (IsHashEmpty[HashNum]!= 0)
 	{
 		HashNum = (HashNum + 1) % HASH_MAX;
 	}
 	strncpy(Hash[HashNum], tmp, STR_MAX);
-        IsHashEmpty[HashNum]= true;
+        IsHashEmpty[HashNum]= 1;
 }
 void ShowHash(char Hash[][STR_MAX])
 {
@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
 	char Hash[HASH_MAX][STR_MAX] = {};
 	char str[STR_MAX];
 	for(int i=0;i<HASH_MAX)
-            IsHashEmpty[i]=true;
+            IsHashEmpty[i]=0;
 	while (fgets(str, sizeof(str), stdin))
 	{
 		if (str[0] != '\n')
