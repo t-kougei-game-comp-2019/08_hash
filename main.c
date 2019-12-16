@@ -48,7 +48,12 @@ int main(int argc, char *argv[])
 		sum += tmp[i];
 	}
                         sum%=HASH_MAX;
-			HashFn(sum, Hash);
+		  while (IsHashEmpty[HashNum]!= 0)
+	{
+		HashNum = (HashNum + 1) % HASH_MAX;
+	}
+	strncpy(Hash[HashNum], tmp, STR_MAX);
+        IsHashEmpty[HashNum]= 1;
 		}
                 else
 			ShowHash(Hash);
