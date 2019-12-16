@@ -32,33 +32,32 @@ int main(int argc, char *argv[])
             IsHashEmpty[i]=0;
 	while (fgets(str, sizeof(str), stdin))
 	{
-		if (str[0]!='\n'){
-                         
-	int sum = 0;
-	char tmp[STR_MAX] = {};
-	strncpy(tmp, str, STR_MAX);
+		if (str[0]!='\n')
+		{          
+			int sum = 0;
+			char tmp[STR_MAX] = {};
+			//strncpy(tmp, str, STR_MAX);
 
-	for (int i = 0; i < STR_MAX; i++)
-	{
-		if (tmp[i] == '\n')
-		{
-                        tmp[i]='\0';
-			break;
-		}
-		sum += tmp[i];
+			for (int i = 0; i < STR_MAX; i++)
+			{
+				if (str[i] == '\n')
+				{
+                        str[i]='\0';
+						break;
+				}
+				sum += str[i];
                 sum%=HASH_MAX;
-	}
-                   int HashNum=sum;
-		  while (IsHashEmpty[HashNum]!= 0)
-	{
-		HashNum = (HashNum + 1) % HASH_MAX;
-	}
-	strncpy(Hash[HashNum], tmp, STR_MAX);
-        IsHashEmpty[HashNum]= 1;
+			}
+			int HashNum=sum;
+			while (IsHashEmpty[HashNum]!= 0)
+				HashNum = (HashNum + 1) % HASH_MAX;
+			strncpy(Hash[HashNum], str, STR_MAX);
+			IsHashEmpty[HashNum]= 1;
 		}
-                else
-                        //printf("%s",str);
+		else
+        	//printf("%s",str);
 			ShowHash(Hash);
 	}
 	return 0;
 }
+	
