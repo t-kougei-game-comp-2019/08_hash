@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
 		}
                 else
                         printf("%s",str);
-			ShowHash(Hash);
+			//ShowHash(Hash);
 	}
 	return 0;
 }
