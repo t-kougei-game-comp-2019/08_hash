@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
 		}
 		sum += tmp[i];
 	}
-                        sum%=HASH_MAX;
+                   int HashNum=sum%HASH_MAX;
 		  while (IsHashEmpty[HashNum]!= 0)
 	{
 		HashNum = (HashNum + 1) % HASH_MAX;
