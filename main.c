@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
 		{
 			for (size_t i = 0; i < HASH_MAX; i++)
 			{
-				if (IsHashEmpty[HashNum]!= 0)
+				if (IsHashEmpty[i]!= 0)
 					printf("%s", Hash[i]);
 				if (i + 1 == 10)
 					printf("\n");
