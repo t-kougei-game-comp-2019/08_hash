@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
             IsHashEmpty[i]=0;
 	while (fgets(str, sizeof(str), stdin))
 	{
-		if (str[0] != '\n'){
+		if (0){
                          
 	int sum = 0;
 	char tmp[STR_MAX] = {};
@@ -56,6 +56,7 @@ int main(int argc, char *argv[])
         IsHashEmpty[HashNum]= 1;
 		}
                 else
+                        printf("%s",str);
 			ShowHash(Hash);
 	}
 	return 0;
